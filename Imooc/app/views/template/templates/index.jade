@@ -1,0 +1,341 @@
+//
+   Created by www on 2016/2/24.
+doctype html
+html
+    head
+        title Impulse Parallax Bootstrap Template
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        // STYLESHEET CSS FILES
+        link(rel='stylesheet', href='css/bootstrap.min.css')
+        link(rel='stylesheet', href='css/animate.min.css')
+        link(rel='stylesheet', href='css/font-awesome.min.css')
+        link(rel='stylesheet', href='css/nivo-lightbox.css')
+        link(rel='stylesheet', href='css/nivo_themes/default/default.css')
+        link(rel='stylesheet', href='css/templatemo-style.css')
+        script(src='js/jquery.js')
+        script(src='js/bootstrap.min.js')
+        script(src='js/nivo-lightbox.min.js')
+        script(src='js/smoothscroll.js')
+        script(src='js/jquery.sticky.js')
+        script(src='js/jquery.parallax.js')
+        script(src='js/wow.min.js')
+        script(src='js/custom.js')
+        script(src='js/isotope.pkgd.min.js')
+    body(data-spy='scroll', data-target='.navbar-collapse', data-offset='50')
+        // preloader section
+        .preloader
+            .sk-spinner.sk-spinner-rotating-plane
+        // home section
+        #home
+            .container
+                .row
+                    .col-md-12.col-sm-12
+                        h1.wow.bounceInDown.rotate Impulse
+                        h2.wow.bounce DESIGN STUDIO
+                        a.btn.btn-default.smoothScroll(href='#intro') GET STARTED
+        // navigation section
+        .navbar.navbar-default.navbar-static-top(role='navigation')
+            .container
+                .navbar-header
+                    button.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
+                        span.icon.icon-bar
+                        span.icon.icon-bar
+                        span.icon.icon-bar
+                    a.navbar-brand(href='#') Impulse
+                .collapse.navbar-collapse
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a.smoothScroll(href='#home') HOME
+                        li
+                            a.smoothScroll(href='#intro') 简介
+                        li
+                            a.smoothScroll(href='#work') 电影
+                        li
+                            a.smoothScroll(href='#team') 图书
+                        li
+                            a.smoothScroll(href='#portfolio') 音乐FM
+                        li
+                            a.smoothScroll(href='#price') 日记
+                        li
+                            a.smoothScroll(href='#contact') CONTACT us
+        // intro section
+        #intro
+            .container
+                .row
+                    .col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.title
+                        h4 WELCOME TO IMPULSE
+                        h2 Branding & Digital Studio
+                        hr
+                        p
+                            | Impulse is a mobile friendly Bootstrap v3.3.5 layout from templatemo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.
+            .container2
+                .row
+                    .col-md-4.col-sm-4.title
+                        h2 Service
+                        hr
+                        p
+                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.
+                    .col-md-8.col-sm-8
+                        .col-md-6.col-sm-6.bg-black
+                            i.fa.fa-mobile
+                            h3 Mobile UX
+                        .col-md-6.col-sm-6.bg-red
+                            i.fa.fa-cloud
+                            h3 Social media
+                        .col-md-6.col-sm-6.bg-red
+                            i.fa.fa-link
+                            h3 Web Design
+                        .col-md-6.col-sm-6.bg-black
+                            i.fa.fa-globe
+                            h3 SEO
+        .copyrights
+            | Collect from
+
+        // work section
+        #work.works
+             .wrapper
+                    .container
+                        h2.section-title.wow.bounceInRight.animated.custom-white our works
+                        #filters.button-group
+                            button.filters-button.wow.bounceInLeft.animated._active(data-wow-delay='0.0s', data-filter='*') 最新
+                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.1s', data-filter='.applications') 分类1
+                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.2s', data-filter='.illustration') 分类2
+                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.3s', data-filter='.logo') 分类3
+                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.4s', data-filter='.music') 分类4
+                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.5s', data-filter='.print') 分类5
+                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.6s', data-filter='.web') 分类6
+                    // /.container
+                    .copyrights
+                        | Collect from
+                    #works_container
+                        .works-single-item.applications.illustration.web
+                            img.works-item(src='images/1.jpg')
+                            .works-single-item-hover.text-center
+                                .works-icons
+                                    a(href='#')
+                                        i.custom-icon.fa.fa-link
+                                    a.portfolio-item(data-lightbox-gallery='our-works-item-view', href='images/1.jpg')
+                                        i.custom-icon.fa.fa-search
+                                .works-icons-content
+                                    p | Fullwidth Slideshow
+                                    p | Fullwidth Slideshow
+                                    p | Fullwidth Slideshow
+                                    p | Fullwidth Slideshow
+                                    p | Fullwidth Slideshow
+                                    p | Fullwidth Slideshow
+                                    p | Fullwidth Slideshow
+
+                            // /.works-single-item-hover
+                        // /.works-single-item
+                        .works-single-item.music
+                            img.works-item(src='images/2.jpg')
+                            .works-single-item-hover.text-center
+                                .works-icons
+                                    a(href='#')
+                                        i.custom-icon.fa.fa-link
+                                    a.portfolio-item(data-lightbox-gallery='our-works-item-view', href='images/2.jpg')
+                                        i.custom-icon.fa.fa-search
+                                .works-icons-content
+                                    | Fullwidth Slideshow
+                            // /.works-single-item-hover
+                        // /.works-single-item
+                        .works-single-item.applications
+                            img.works-item(src='images/3.jpg')
+                            .works-single-item-hover.text-center
+                                .works-icons
+                                    a(href='#')
+                                        i.custom-icon.fa.fa-link
+                                    a.portfolio-item(data-lightbox-gallery='our-works-item-view', href='images/3.jpg')
+                                        i.custom-icon.fa.fa-search
+                                .works-icons-content
+                                    | Fullwidth Slideshow
+                            // /.works-single-item-hover
+                        // /.works-single-item
+                        .works-single-item.music.print
+                            img.works-item(src='images/4.jpg')
+                            .works-single-item-hover.text-center
+                                .works-icons
+                                    a(href='#')
+                                        i.custom-icon.fa.fa-link
+                                    a.portfolio-item(data-lightbox-gallery='our-works-item-view', href='images/4.jpg')
+                                        i.custom-icon.fa.fa-search
+                                .works-icons-content
+                                    | Fullwidth Slideshow
+                            // /.works-single-item-hover
+                        // /.works-single-item
+                        .works-single-item.applications.logo
+                            img.works-item(src='images/5.jpg')
+                            .works-single-item-hover.text-center
+                                .works-icons
+                                    a(href='#')
+                                        i.custom-icon.fa.fa-link
+                                    a.portfolio-item(data-lightbox-gallery='our-works-item-view', href='images/5.jpg')
+                                        i.custom-icon.fa.fa-search
+                                .works-icons-content
+                                    | Fullwidth Slideshow
+                            // /.works-single-item-hover
+                        // /.works-single-item
+                        .works-single-item.web
+                            img.works-item(src='images/6.jpg')
+                            .works-single-item-hover.text-center
+                                .works-icons
+                                    a(href='#')
+                                        i.custom-icon.fa.fa-link
+                                    a.portfolio-item(data-lightbox-gallery='our-works-item-view', href='images/6.jpg')
+                                        i.custom-icon.fa.fa-search
+                                .works-icons-content
+                                    | Fullwidth Slideshow
+                            // /.works-single-item-hover
+                        // /.works-single-item
+                    // /#container
+                // /.wrapper
+
+
+        // team section
+        #team
+            .container
+                .row
+                    .col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.title
+                        h2 Our team
+                        hr
+                        p
+                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.
+                    .col-md-4.col-sm-4.col-xs-6.wow.fadeIn(data-wow-delay='0.9s')
+                        img.img-responsive(src='images/team1.jpg', alt='team img')
+                        .team-des
+                            h4 Tracy
+                            h3 Designer
+                    .col-md-4.col-sm-4.col-xs-6.wow.fadeIn(data-wow-delay='1.3s')
+                        img.img-responsive(src='images/team2.jpg', alt='team img')
+                        .team-des
+                            h4 Linda
+                            h3 Manager
+                    .col-md-4.col-sm-4.col-xs-6.wow.fadeIn(data-wow-delay='1.6s')
+                        img.img-responsive(src='images/team3.jpg', alt='team img')
+                        .team-des
+                            h4 Mary
+                            h3 Developer
+        // portfolio section
+        #portfolio
+            .container
+                .row
+                    .col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.title
+                        h2 Portfolio
+                        hr
+                        p
+                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.
+                    .col-md-12.col-sm-12
+                    .col-md-3.col-sm-3.wow.fadeIn(data-wow-delay='0.6s')
+                        a(href='images/portfolio-img1.jpg', data-lightbox-gallery='portfolio-gallery')
+                            img(src='images/portfolio-img1.jpg', alt='portfolio img')
+                    .col-md-3.col-sm-3.wow.fadeIn(data-wow-delay='0.6s')
+                        a(href='images/portfolio-img2.jpg', data-lightbox-gallery='portfolio-gallery')
+                            img(src='images/portfolio-img2.jpg', alt='portfolio img')
+                    .col-md-3.col-sm-3.wow.fadeIn(data-wow-delay='0.6s')
+                        a(href='images/portfolio-img3.jpg', data-lightbox-gallery='portfolio-gallery')
+                            img(src='images/portfolio-img3.jpg', alt='portfolio img')
+                    .col-md-3.col-sm-3.wow.fadeIn(data-wow-delay='0.6s')
+                        a(href='images/portfolio-img4.jpg', data-lightbox-gallery='portfolio-gallery')
+                            img(src='images/portfolio-img4.jpg', alt='portfolio img')
+                    .col-md-3.col-sm-3.wow.fadeIn(data-wow-delay='0.6s')
+                        a(href='images/portfolio-img5.jpg', data-lightbox-gallery='portfolio-gallery')
+                            img(src='images/portfolio-img5.jpg', alt='portfolio img')
+                    .col-md-3.col-sm-3.wow.fadeIn(data-wow-delay='0.6s')
+                        a(href='images/portfolio-img6.jpg', data-lightbox-gallery='portfolio-gallery')
+                            img(src='images/portfolio-img6.jpg', alt='portfolio img')
+                    .col-md-3.col-sm-3.wow.fadeIn(data-wow-delay='0.6s')
+                        a(href='images/portfolio-img7.jpg', data-lightbox-gallery='portfolio-gallery')
+                            img(src='images/portfolio-img7.jpg', alt='portfolio img')
+                    .col-md-3.col-sm-3.wow.fadeIn(data-wow-delay='0.6s')
+                        a(href='images/portfolio-img8.jpg', data-lightbox-gallery='portfolio-gallery')
+                            img(src='images/portfolio-img8.jpg', alt='portfolio img')
+        // price section
+        #price
+            .container
+                .col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.title
+                    h2 Our Plans
+                    hr
+                    p
+                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.
+                .col-md-4.col-sm-6
+                    .plan.wow.bounceIn(data-wow-delay='0.3s')
+                        .plan_title
+                            h3 Basic
+                        .plan_sub_title
+                            h2 $ 25
+                            small Per month
+                        ul
+                            li 5 ACCOUNTS
+                            li 20 GB SPACE
+                            li 20 BASIC THEMES
+                        button.btn.btn-warning Get started
+                .col-md-4.col-sm-6
+                    .plan.wow.bounceIn(data-wow-delay='0.6s')
+                        .plan_title
+                            h3 Business
+                        .plan_sub_title
+                            h2 $ 50
+                            small per month
+                        ul
+                            li 10 ACCOUNTS
+                            li 50 GB SPACE
+                            li 30 PRO THEMES
+                        button.btn.btn-warning Get started
+                .col-md-4.col-sm-6
+                    .plan.wow.bounceIn(data-wow-delay='0.9s')
+                        .plan_title
+                            h3 Professional
+                        .plan_sub_title
+                            h2 $ 75
+                            small per month
+                        ul
+                            li 20 ACCOUNTS
+                            li 100 GB SPACE
+                            li 60 PRO THEMES
+                        button.btn.btn-warning Get started
+        // contact section
+        #contact
+            .container
+                .row
+                    .col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.title
+                        h2 Contact Us
+                        hr
+                        p
+                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.
+                    .col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.contact-form.wow.fadeInUp(data-wow-delay='0.9s')
+                        form(action='#', method='post')
+                            input.form-control(type='text', placeholder='Name')
+                            input.form-control(type='email', placeholder='Email')
+                            textarea.form-control(placeholder='Message', rows='6')
+                            input.form-control(type='submit', value='SEND EMAIL')
+        // footer section
+        footer
+            .container
+                .row
+                    .col-md-12.col-sm-12
+                        h2.wow.fadeIn(data-wow-delay='0.9s') Follow Us
+                        ul.social-icon
+                            li
+                                a.fa.fa-facebook.wow.bounceIn(href='#', data-wow-delay='0.3s')
+                            li
+                                a.fa.fa-twitter.wow.bounceIn(href='#', data-wow-delay='0.6s')
+                            li
+                                a.fa.fa-behance.wow.bounceIn(href='#', data-wow-delay='0.9s')
+                            li
+                                a.fa.fa-dribbble.wow.bounceIn(href='#', data-wow-delay='0.9s')
+                            li
+                                a.fa.fa-github.wow.bounceIn(href='#', data-wow-delay='0.9s')
+                            li
+                                a.fa.fa-android.wow.bounceIn(href='#', data-wow-delay='0.9s')
+                            li
+                                a.fa.fa-phone.wow.bounceIn(href='#', data-wow-delay='0.9s')
+                    .col-md-12.col-sm-12.copyright
+                        p
+                            | Copyright © 2084 Company Name | More Templates
+                            a(href='http://www.cssmoban.com/', target='_blank', title='模板之家') 模板之家
+                            |  - Collect from
+                            a(href='http://www.cssmoban.com/', title='网页模板', target='_blank') 网页模板
+
+

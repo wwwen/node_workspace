@@ -27,10 +27,13 @@ app.use(session({
     })*/
 })
 );
-app.set("views","./app/views/pages");
+//app.set("views","./app/views/pages");
+//app.use(express.static("public"));
+app.set("views","./app/views/template/templates");
+app.use(express.static("./app/views/template/templates"));
+
 app.set("view engine","jade");
 app.set("port",3000);
-app.use(express.static("public"));
 app.listen(3000);
 require('./config/routes')(app);
 console.log("------------Server start------------");
