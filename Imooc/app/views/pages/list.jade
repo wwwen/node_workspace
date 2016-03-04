@@ -1,6 +1,6 @@
 //
    Created by www on 2016/1/12.
-extends ../layout
+extends ../template/layout
 block content
     .container
         .row
@@ -11,13 +11,14 @@ block content
                         th
                         th
                         th
-                        //th
+                        th
                         th
                         th
                         th
                 tboady
                     each item in movies
                         tr(class="item-id-#{item._id}")
+                            td i
                             td #{item.title}
                             td #{item.doctor}
                             td #{item.country}
@@ -26,3 +27,4 @@ block content
                             td: a.btn.btn-primary(data-id="#{item._id}" href="/movie/#{item._id}") 查看
                             td: a.btn.btn-success(data-id="#{item._id}" href="/admin/update/#{item._id}") 修改
                             td: button.btn.btn-danger.del(data-id="#{item._id}") 删除
+

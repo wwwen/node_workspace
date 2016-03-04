@@ -129,7 +129,7 @@ exports.list=function(req,res){
             if(err){
                 console.log(err)
             }
-            res.render("list",
+            res.render("index",
                 {
                     title:"列表页",
                     movies:movies

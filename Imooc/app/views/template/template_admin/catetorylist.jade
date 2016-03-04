@@ -1,0 +1,29 @@
+//
+   Created by www on 2016/2/21.
+
+//
+   Created by www on 2016/1/23.
+extends ../layout
+block content
+    script(src="/js/catetory.js")
+    .container
+        .row
+            table.table.table-hover.table-bordered
+                thead
+                    tr
+                        th name
+                        //th password
+                        //th
+                        //th
+                        //th
+                        //th
+                tboady
+                    each item in catetories
+                        tr(class="item-id-#{item._id}")
+                            td #{item.name}
+                            //td #{item.password}
+                            //td #{moment(item.meta.creationData).format("MM/DD/YYYY")}
+                            td: a.btn.btn-primary(data-id="#{item._id}" href="/admin/catetory/#{item._id}") 查看
+                            td: a.btn.btn-success(data-id="#{item._id}" href="/admin/catetory/update/#{item._id}") 修改
+                            td: button.btn.btn-danger.del(data-id="#{item._id}") 删除
+

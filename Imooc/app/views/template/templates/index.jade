@@ -97,11 +97,11 @@ html
         #work.works
              .wrapper
                     .container
-                        h2.section-title.wow.bounceInRight.animated.custom-white our works
+                        h2.section-title.wow.bounceInRight.animated.custom-white 我的电影
                         #filters.button-group
                             button.filters-button.wow.bounceInLeft.animated._active(data-wow-delay='0.0s', data-filter='*') 最新
-                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.1s', data-filter='.applications') 分类1
-                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.2s', data-filter='.illustration') 分类2
+                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.1s', data-filter='.分类1') 分类1
+                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.2s', data-filter='.分类2') 分类2
                             button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.3s', data-filter='.logo') 分类3
                             button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.4s', data-filter='.music') 分类4
                             button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.5s', data-filter='.print') 分类5
@@ -110,27 +110,30 @@ html
                     .copyrights
                         | Collect from
                     #works_container
-                        .works-single-item.applications.illustration.web
-                            img.works-item(src='images/1.jpg')
-                            .works-single-item-hover.text-center
-                                .works-icons
-                                    a(href='#')
-                                        i.custom-icon.fa.fa-link
-                                    a.portfolio-item(data-lightbox-gallery='our-works-item-view', href='images/1.jpg')
-                                        i.custom-icon.fa.fa-search
-                                .works-icons-content
-                                    p | Fullwidth Slideshow
-                                    p | Fullwidth Slideshow
-                                    p | Fullwidth Slideshow
-                                    p | Fullwidth Slideshow
-                                    p | Fullwidth Slideshow
-                                    p | Fullwidth Slideshow
-                                    p | Fullwidth Slideshow
+                        each cat in catetories
+                            if cat.movies && cat.movies.length > 0
+                            each item in cat.movies
+                                .works-single-item(class="#{cat.name}")
+                                    img.works-item(src='images/1.jpg')
+                                    .a(href="#") #{item.title}
+                                    .works-single-item-hover.text-center
+                                        .works-icons
+                                            a(href='#')
+                                                i.custom-icon.fa.fa-link
+                                            a.portfolio-item(data-lightbox-gallery='our-works-item-view', href='images/1.jpg')
+                                                i.custom-icon.fa.fa-search
+                                        .works-icons-content
+                                            p|电影名称
+                                            p|上映时间
+                                            p|导演名称
+                                            p|分类
+
 
                             // /.works-single-item-hover
                         // /.works-single-item
                         .works-single-item.music
                             img.works-item(src='images/2.jpg')
+                            .a(href="#") dianying
                             .works-single-item-hover.text-center
                                 .works-icons
                                     a(href='#')
@@ -143,6 +146,7 @@ html
                         // /.works-single-item
                         .works-single-item.applications
                             img.works-item(src='images/3.jpg')
+                            .a(href="#") dianying
                             .works-single-item-hover.text-center
                                 .works-icons
                                     a(href='#')
@@ -155,6 +159,7 @@ html
                         // /.works-single-item
                         .works-single-item.music.print
                             img.works-item(src='images/4.jpg')
+                            .a(href="#") dianying
                             .works-single-item-hover.text-center
                                 .works-icons
                                     a(href='#')
@@ -167,6 +172,7 @@ html
                         // /.works-single-item
                         .works-single-item.applications.logo
                             img.works-item(src='images/5.jpg')
+                            .a(href="#") dianying
                             .works-single-item-hover.text-center
                                 .works-icons
                                     a(href='#')
@@ -179,6 +185,7 @@ html
                         // /.works-single-item
                         .works-single-item.web
                             img.works-item(src='images/6.jpg')
+                            .a(href="#") dianying
                             .works-single-item-hover.text-center
                                 .works-icons
                                     a(href='#')
@@ -197,32 +204,59 @@ html
         #team
             .container
                 .row
-                    .col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.title
-                        h2 Our team
-                        hr
-                        p
-                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.
-                    .col-md-4.col-sm-4.col-xs-6.wow.fadeIn(data-wow-delay='0.9s')
-                        img.img-responsive(src='images/team1.jpg', alt='team img')
-                        .team-des
-                            h4 Tracy
-                            h3 Designer
-                    .col-md-4.col-sm-4.col-xs-6.wow.fadeIn(data-wow-delay='1.3s')
-                        img.img-responsive(src='images/team2.jpg', alt='team img')
-                        .team-des
-                            h4 Linda
-                            h3 Manager
-                    .col-md-4.col-sm-4.col-xs-6.wow.fadeIn(data-wow-delay='1.6s')
-                        img.img-responsive(src='images/team3.jpg', alt='team img')
-                        .team-des
-                            h4 Mary
-                            h3 Developer
+                    h2.section-title.wow.bounceInRight.animated.custom-white 我的阅读
+                    ul.list3
+                        li.col-lg-6.col-md-6.col-sm-6
+                            .box4
+                                figure
+                                    img(src='./images/page1_img4.jpg', alt='')
+                                .info1.maxheight
+                                    p.list3title1 Nature
+                                    p.list3title2 Migytafsas deuauyt asares
+                                    p.list3title3 Kictaesaert asetyertya aset aplicibrdedas.
+                                    a.btn-link.btn-link1(href='#')
+                                        | learn more
+                                        span
+                        li.col-lg-6.col-md-6.col-sm-6
+                            .box4
+                                figure
+                                    img(src='./images/page1_img5.jpg', alt='')
+                                .info1.maxheight
+                                    p.list3title1 Cities
+                                    p.list3title2 Btreasas lisemeyta siqades
+                                    p.list3title3 Kictaesaert asetyertya aset aplicibrdedas.
+                                    a.btn-link.btn-link1(href='#')
+                                        | learn more
+                                        span
+                        li.col-lg-6.col-md-6.col-sm-6
+                            .box4
+                                figure
+                                    img(src='./images/page1_img6.jpg', alt='')
+                                .info1.maxheight
+                                    p.list3title1 Portraits
+                                    p.list3title2 Dolore nuyfasa kerytertas
+                                    p.list3title3 Kictaesaert asetyertya aset aplicibrdedas.
+                                    a.btn-link.btn-link1(href='#')
+                                        | learn more
+                                        span
+                        li.col-lg-6.col-md-6.col-sm-6
+                            .box4
+                                figure
+                                    img(src='./images/page1_img7.jpg', alt='')
+                                .info1.maxheight
+                                    p.list3title1 Fashion
+                                    p.list3title2 Fertyuasa mietyas lteasas
+                                    p.list3title3 Kictaesaert asetyertya aset aplicibrdedas.
+                                    a.btn-link.btn-link1(href='#')
+                                        | learn more
+                                        span
+
         // portfolio section
         #portfolio
             .container
                 .row
                     .col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.title
-                        h2 Portfolio
+                        h2 我的音乐歌单
                         hr
                         p
                             | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.
@@ -255,21 +289,20 @@ html
         #price
             .container
                 .col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.title
-                    h2 Our Plans
+                    h2 我的日记
                     hr
                     p
                         | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.
                 .col-md-4.col-sm-6
                     .plan.wow.bounceIn(data-wow-delay='0.3s')
                         .plan_title
-                            h3 Basic
+                            h3 标题
                         .plan_sub_title
-                            h2 $ 25
-                            small Per month
+                            h2 主题
+                            small 时间
                         ul
-                            li 5 ACCOUNTS
-                            li 20 GB SPACE
-                            li 20 BASIC THEMES
+                            li 分享链接
+                            li 收获感想。。更多
                         button.btn.btn-warning Get started
                 .col-md-4.col-sm-6
                     .plan.wow.bounceIn(data-wow-delay='0.6s')

@@ -10,6 +10,7 @@ module.exports=function(app){
     //页面路由
 //index
     app.get("/",Index.index);
+    app.get("/admin",Movie.list);
 //movie
     //detail
     app.get("/movie/:id",Movie.detail);

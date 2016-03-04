@@ -5,13 +5,12 @@ html(lang='ch')
     head
         meta(charset='utf-8')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
-        meta(name='description', content='左右结构项目，属于大人员的社交工具')
-        meta(name='keywords', content='左右结构项目 社交 占座 ')
         meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
         meta(name='format-detection', content='telephone=no')
-        title 左右结构项目！
+        title admin
         script(src='js/jquery.min.js')
         script(src='js/bootstrap.min.js')
+        script(src='/public/js/admin.js')
         script.
             $(function() {
                 $(".meun-item").click(function() {
@@ -61,17 +60,26 @@ html(lang='ch')
                 #logoDiv
                     p#logoP
                         img#logo(alt='左右结构项目', src='images/logo.png')
-                        span 左右结构项目
+                        span www后台管理
                 #personInfor
-                    p#userName 杨鹏
+                    p#userName www
                     p
-                        span yangxp@qq.com
+                        span 1070374990@qq.com
                     p
                         a 退出登录
                 .meun-title 账号管理
-                .meun-item.meun-item-active(href='#sour', aria-controls='sour', role='tab', data-toggle='tab')
+                .meun-item.meun-item-active(href='#movie', aria-controls='movie', role='tab', data-toggle='tab')
                     img(src='images/icon_source.png')
-                    | 资源管理
+                    | 电影管理
+                .meun-item(href='#sour', aria-controls='sour', role='tab', data-toggle='tab')
+                    img(src='images/icon_source.png')
+                    | 分类管理
+                .meun-item(href='#sour', aria-controls='sour', role='tab', data-toggle='tab')
+                    img(src='images/icon_source.png')
+                    | 图书管理
+                .meun-item(href='#sour', aria-controls='sour', role='tab', data-toggle='tab')
+                    img(src='images/icon_source.png')
+                    | 音乐管理
                 .meun-item(href='#char', aria-controls='char', role='tab', data-toggle='tab')
                     img(src='images/icon_chara_grey.png')
                     | 权限管理
@@ -81,145 +89,46 @@ html(lang='ch')
                 .meun-item(href='#chan', aria-controls='chan', role='tab', data-toggle='tab')
                     img(src='images/icon_change_grey.png')
                     | 修改密码
-                .meun-title 地区管理
-                .meun-item(href='#scho', aria-controls='scho', role='tab', data-toggle='tab')
-                    img(src='images/icon_house_grey.png')
-                    | 地区管理
-                .meun-item(href='#regu', aria-controls='regu', role='tab', data-toggle='tab')
-                    img(src='images/icon_rule_grey.png')
-                    | 规则管理
-                .meun-item(href='#stud', aria-controls='stud', role='tab', data-toggle='tab')
-                    img(src='images/icon_card_grey.png')
-                    | 人员信息
-                .meun-item(href='#sitt', aria-controls='sitt', role='tab', data-toggle='tab')
-                    img(src='images/icon_char_grey.png')
-                    | 座位管理
+
+
             // 右侧具体内容栏目
             #rightContent
                 a#nimei.toggle-btn
                     i.glyphicon.glyphicon-align-justify
                 // Tab panes
                 .tab-content
-                    // 资源管理模块
-                    #sour.tab-pane.active(role='tabpanel')
+                    // 电影管理模块
+                    #movie.tab-pane.active(role='tabpanel')
                         .check-div.form-inline
                             button.btn.btn-yellow.btn-xs(data-toggle='modal', data-target='#addSource') 添加资源
                         .data-div
-                            .row.tableHeader
-                                .col-lg-1.col-md-1.col-sm-1.col-xs-1
-                                    | 编码
-                                .col-lg-4.col-md-4.col-sm-4.col-xs-4
-                                    | 名称
-                                .col-lg-5.col-md-5.col-sm-5.col-xs-5
-                                    | 链接
-                                .col-lg-2.col-md-2.col-sm-2.col-xs-2
-                                    | 操作
-                            .tablebody
-                                .row
-                                    .col-lg-1.col-md-1.col-sm-1.col-xs-1
-                                        | 1
-                                    #topAD.col-lg-4.col-md-4.col-sm-4.col-xs-4(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseSystem', aria-expanded='true', aria-controls='collapseOne')
-                                        span#topA.glyphicon.glyphicon-triangle-bottom
-                                        span 系统管理
-                                    .col-lg-5.col-md-5.col-sm-5.col-xs-5
-                                        | /admin/system/userlist/software/
-                                    .col-lg-2.col-md-2.col-sm-2.col-xs-2
-                                        button.btn.btn-success.btn-xs(data-toggle='modal', data-target='#changeSource') 修改
-                                        button.btn.btn-danger.btn-xs(data-toggle='modal', data-target='#deleteSource') 删除
-                                // 系统管理折叠狂
-                                #collapseSystem.collapse.in(aria-expanded='true')
-                                    .row
-                                        .col-lg-1.col-md-1.col-sm-1.col-xs-1.levl2
-                                            | 2
-                                        #topBD.col-lg-4.col-md-4.col-sm-4.col-xs-4.levl2(onclick='changeA()', role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseAccount', aria-expanded='true', aria-controls='collapseOne')
-                                            span#topB.glyphicon.glyphicon-triangle-bottom(onclick='changeB()')
-                                            span 账号管理
-                                        .col-lg-5.col-md-5.col-sm-5.col-xs-5
-                                            | /rlist/
-                                        .col-lg-2.col-md-2.col-sm-2.col-xs-2
-                                            button.btn.btn-success.btn-xs(data-toggle='modal', data-target='#changeSource') 修改
-                                            button.btn.btn-danger.btn-xs(data-toggle='modal', data-target='#deleteSource') 删除
-                                    // 用户管理折叠狂
-                                    #collapseAccount.collapse.in(aria-expanded='true')
-                                        .row
-                                            .col-lg-1.col-md-1.col-sm-1.col-xs-1.levl3
-                                                | 1
-                                            .col-lg-4.col-md-4.col-sm-4.col-xs-4.levl3
-                                                span   
-                                                span 资源管理
-                                            .col-lg-5.col-md-5.col-sm-5.col-xs-5
-                                                | /admin/system/userlist/software/
-                                            .col-lg-2.col-md-2.col-sm-2.col-xs-2
-                                                button.btn.btn-success.btn-xs(data-toggle='modal', data-target='#changeSource') 修改
-                                                button.btn.btn-danger.btn-xs(data-toggle='modal', data-target='#deleteSource') 删除
-                                        .row
-                                            .col-lg-1.col-md-1.col-sm-1.col-xs-1.levl3
-                                                | 2
-                                            .col-lg-4.col-md-4.col-sm-4.col-xs-4.levl3
-                                                span
-                                                span 权限管理
-                                            .col-lg-5.col-md-5.col-sm-5.col-xs-5
-                                                | /admin/system/userlist/software/
-                                            .col-lg-2.col-md-2.col-sm-2.col-xs-2
-                                                button.btn.btn-success.btn-xs(data-toggle='modal', data-target='#changeSource') 修改
-                                                button.btn.btn-danger.btn-xs(data-toggle='modal', data-target='#deleteSource') 删除
-                                    .row
-                                        .col-lg-1.col-md-1.col-sm-1.col-xs-1.levl2
-                                            | 3
-                                        #topCD.col-lg-4.col-md-4.col-sm-4.col-xs-4.levl2(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseSchool', aria-expanded='true', aria-controls='collapseOne')
-                                            span#topC.glyphicon.glyphicon-triangle-bottom(onclick='changeC()')
-                                            span  地区管理
-                                        .col-lg-5.col-md-5.col-sm-5.col-xs-5
-                                            | /admin/system
-                                        .col-lg-2.col-md-2.col-sm-2.col-xs-2
-                                            button.btn.btn-success.btn-xs(data-toggle='modal', data-target='#changeSource') 修改
-                                            button.btn.btn-danger.btn-xs(data-toggle='modal', data-target='#deleteSource') 删除
-                                    // 地区管理折叠狂
-                                    #collapseSchool.collapse.in(aria-expanded='true')
-                                        .row
-                                            .col-lg-1.col-md-1.col-sm-1.col-xs-1.levl3
-                                                | 1
-                                            .col-lg-4.col-md-4.col-sm-4.col-xs-4.levl3
-                                                span
-                                                span 地区管理
-                                            .col-lg-5.col-md-5.col-sm-5.col-xs-5
-                                                | /admin/system/userlist/software/
-                                            .col-lg-2.col-md-2.col-sm-2.col-xs-2
-                                                button.btn.btn-success.btn-xs(data-toggle='modal', data-target='#changeSource') 修改
-                                                button.btn.btn-danger.btn-xs(data-toggle='modal', data-target='#deleteSource') 删除
-                                        .row
-                                            .col-lg-1.col-md-1.col-sm-1.col-xs-1.levl3
-                                                | 2
-                                            .col-lg-4.col-md-4.col-sm-4.col-xs-4.levl3
-                                                span
-                                                span 规则管理
-                                            .col-lg-5.col-md-5.col-sm-5.col-xs-5
-                                                | /admin/system/userlist/software/
-                                            .col-lg-2.col-md-2.col-sm-2.col-xs-2
-                                                button.btn.btn-success.btn-xs(data-toggle='modal ', data-target='#changeSource ') 修改
-                                                button.btn.btn-danger.btn-xs(data-toggle='modal ', data-target='#deleteSource ') 删除
-                                        .row
-                                            .col-lg-1.col-md-1.col-sm-1.col-xs-1.levl3
-                                                | 3
-                                            .col-lg-4.col-md-4.col-sm-4.col-xs-4.levl3
-                                                span
-                                                span 人员信息
-                                            .col-lg-5.col-md-5.col-sm-5.col-xs-5
-                                                | /admin/system/userlist/software/
-                                            .col-lg-2.col-md-2.col-sm-2.col-xs-2
-                                                button.btn.btn-success.btn-xs(data-toggle='modal', data-target='#changeSource') 修改
-                                                button.btn.btn-danger.btn-xs(data-toggle='modal', data-target='#deleteSource') 删除
-                                        .row
-                                            .col-lg-1.col-md-1.col-sm-1.col-xs-1.levl3
-                                                | 4
-                                            .col-lg-4.col-md-4.col-sm-4.col-xs-4.levl3
-                                                span
-                                                span 座位管理
-                                            .col-lg-5.col-md-5.col-sm-5.col-xs-5
-                                                | /admin/system/userlist/software/
-                                            .col-lg-2.col-md-2.col-sm-2.col-xs-2
-                                                button.btn.btn-success.btn-xs(data-toggle='modal', data-target='#changeSource') 修改
-                                                button.btn.btn-danger.btn-xs(data-toggle='modal', data-target='#deleteSource') 删除
+                            table.table.table-hover.table-bordered
+                                thead
+                                    tr
+                                        th 编号
+                                        th 名称
+                                        th 导演
+                                        th 国家
+                                        th 上映时间
+                                        th 操作
+
+
+                                tbody
+                                    -var i=0
+                                    each item in movies
+                                        - i=i+1
+                                        tr(class="item-id-#{item._id}")
+                                            td #{i}
+                                            td #{item.title}
+                                            td #{item.doctor}
+                                            td #{item.country}
+                                            td #{item.year}
+                                            //td #{moment(item.meta.creat).format("MM/DD/YYYY")}
+                                            td: a.btn.btn-primary.btn-xs(data-id="#{item._id}" href="/movie/#{item._id}") 查看
+                                                a.btn.btn-success.btn-xs(data-id="#{item._id}" href="/admin/update/#{item._id}") 修改
+                                                button.btn.btn-danger.del.btn-xs(data-id="#{item._id}") 删除
+
+
                         // 页码块
                         footer.footer
                             ul.pagination
@@ -689,7 +598,7 @@ html(lang='ch')
                                         button.btn.btn-xs.btn-white(type='reset') 取 消
                                         button.btn.btn-xs.btn-green(type='submit') 保存
                     // 地区管理模块
-                    #scho.tab-pane(role='tabpanel')
+                    //#scho.tab-pane(role='tabpanel')
                         .check-div.form-inline
                             .col-xs-3
                                 button.btn.btn-yellow.btn-xs(data-toggle='modal', data-target='#addSchool') 添加地区
@@ -840,7 +749,7 @@ html(lang='ch')
                             // /.modal-dialog
                         // /.modal
                     // 规则管理模块
-                    #regu.tab-pane(role='tabpanel', style='padding-top: 50px;')
+                    //#regu.tab-pane(role='tabpanel', style='padding-top: 50px;')
                         .data-div
                             .tablebody.col-lg-10.col-lg-offset-1
                                 .row
@@ -901,7 +810,7 @@ html(lang='ch')
                                     button.btn.btn-xs.btn-white(type='button', data-dismiss='modal') 取 消
                                     button.btn.btn-xs.btn-green(type='button') 保 存
                     // 时间段管理模块
-                    #time.tab-pane(role='tabpanel')
+                    //#time.tab-pane(role='tabpanel')
                         .check-div.form-inline
                             span(href='#sitt', aria-controls='sitt', role='tab', data-toggle='tab', style='cursor: pointer;')
                                 span.glyphicon.glyphicon.glyphicon-chevron-left
@@ -1018,7 +927,7 @@ html(lang='ch')
                             // /.modal-dialog
                         // /.modal
                     // 座位管理模块
-                    #sitt.tab-pane(role='tabpanel')
+                    //#sitt.tab-pane(role='tabpanel')
                         .check-div.form-inline(style='')
                             .col-lg-4.col-xs-7.col-md-6
                                 button.btn.btn-yellow.btn-xs(data-toggle='modal', data-target='#addBuilding') 添加楼宇
@@ -1188,7 +1097,7 @@ html(lang='ch')
                             // /.modal-dialog
                         // /.modal
                     // 座位详情模块
-                    #sitDetail.tab-pane(role='tabpanel')
+                    //#sitDetail.tab-pane(role='tabpanel')
                         .check-div.form-inline
                             span(href='#sitt', aria-controls='sitt', role='tab', data-toggle='tab', style='cursor: pointer;')
                                 span.glyphicon.glyphicon.glyphicon-chevron-left
@@ -1228,7 +1137,7 @@ html(lang='ch')
                                 li
                                     i.glyphicon.glyphicon-menu-right
                     // 人员管理模块
-                    #stud.tab-pane(role='tabpanel')
+                    //#stud.tab-pane(role='tabpanel')
                         .check-div.form-inline
                             .col-xs-5
                                 input.form-control.input-sm(type='text', placeholder='输入文字搜索', style='	!height: 40px!important;')
@@ -1309,50 +1218,10 @@ html(lang='ch')
                             // /.modal-dialog
                         // /.modal
         // 滑块js
-        //
-          <script type="text/javascript">
-          scale = function(btn, bar, title, unit) {
-          this.btn = document.getElementById(btn);
-          this.bar = document.getElementById(bar);
-          this.title = document.getElementById(title);
-          this.step = this.bar.getElementsByTagName("div")[0];
-          this.unit = unit;
-          this.init();
-          };
-          scale.prototype = {
-          init: function() {
-          var f = this,
-          g = document,
-          b = window,
-          m = Math;
-          f.btn.onmousedown = function(e) {
-          var x = (e || b.event).clientX;
-          var l = this.offsetLeft;
-          //						var max = f.bar.offsetWidth - this.offsetWidth;
-          var max = f.bar.offsetWidth-20 ;
-          g.onmousemove = function(e) {
-          var thisX = (e || b.event).clientX;
-          var to = m.min(max, m.max(-2, l + (thisX - x)));
-          f.btn.style.left = to+ 'px';
-          f.ondrag(m.round(m.max(0, to / max) * 100), to);
-          b.getSelection ? b.getSelection().removeAllRanges() : g.selection.empty();
-          };
-          g.onmouseup = new Function('this.onmousemove=null');
-          };
-          },
-          ondrag: function(pos, x) {
-          this.step.style.width = Math.max(0, x) +2+ 'px';
-          this.title.innerHTML = pos / 10 + this.unit + "";
-          }
-          }
-          new scale('btn0', 'bar0', 'title0', "分钟");
-          new scale('btn1', 'bar1', 'title1', "分钟");
-          new scale('btn2', 'bar2', 'title2', "天");
-          new scale('btn3', 'bar3', 'title3', "次");
-          </script>
-        script(src='js/jquery.nouislider.js')
+
+        //script(src='js/jquery.nouislider.js')
         // this page specific inline scripts
-        script.
+        //script.
             //min/max slider
             function huadong(my, unit, def,max) {
                 $(my).noUiSlider({

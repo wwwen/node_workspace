@@ -1,0 +1,82 @@
+//
+   Created by www on 2016/1/12.
+
+
+//----------------------------------------header-------------------------------------------
+.container
+    .row
+        .page-header
+            h1 #{title}
+            //h1=title
+            //small smallTitle
+            button.button.button-large.button-plain.button-border.button-circle
+                i.fa.fa-reply
+
+
+//----------------------------------------footer-----------------------------------------------
+.navbar.navbar-default.navbar-fixed-bottom
+    .container
+        .navbar-header
+            a.navbar-brand(href="/") user information
+        if user
+            p.navbar-text.navbar-right
+                span welcome,#{user.name}
+                //span welcome
+                span &nbsp;|&nbsp;
+                a.navbar-link(href="/logout") exit
+        else
+            p.navbar-text.navbar-right
+                a.navbar-link(href="#",data-toggle="modal",data-target="#signupModal") sign up
+                span &nbsp;|&nbsp;
+                a.navbar-link(href="#",data-toggle="modal",data-target="#signinModal") sign in
+//模态框 sign in ,sign up
+script(src="/js/user.js")
+//---------------------------------------sign up modal------------------------------------------
+#signupModal.modal.fade
+    .modal-dialog
+        .modal-content
+            form(id="signup" method="post",action="/user/signup")
+                .modal-header sign up
+                .modal-body
+                    .form-group
+                        label(for="name") name
+                        input#name.form-control(name="user[name]",type="text")
+                        span#message
+                    .form-group
+                        label(for="password") password
+                        input#password.form-control(name="user[password]",type="text")
+                .modal-footer
+                    button.btn.btn-default(type="button",data-dismiss="modal") close
+                    button.btn.btn-success(type="submit" id="submit") submit
+//--------------------------------------sign in modal----------------------------------------------
+#signinModal.modal.fade
+    .modal-dialog
+        .modal-content
+            form(method="post",action="/user/signin")
+                .modal-header sign in
+                .modal-body
+                    .form-group
+                        label(for="signinname") name
+                        input#signinname.form-control(name="user[name]",type="text")
+                    .form-group
+                        label(for="signinpassword") password
+                        input#signinpassword.form-control(name="user[password]",type="text")
+                .modal-footer
+                    button.btn.btn-default(type="button",data-dismiss="modal") close
+                    button.btn.btn-success(type="submit") submit
+//-----------------------------------------exit modal-----------------------------------------------
+#exitModal.modal.fade
+    .modal-dialog
+        .modal-content
+            form(method="post",action="/user/signin")
+                .modal-header sign in
+                .modal-body
+                    .form-group
+                        label(for="exitname") name
+                        input#exitname.form-control(name="user[name]",type="text")
+                    .form-group
+                        label(for="exitpassword") password
+                        input#exitpassword.form-control(name="user[password]",type="text")
+                .modal-footer
+                    button.btn.btn-default(type="button",data-dismiss="modal") close
+                    button.btn.btn-success(type="submit") submit
