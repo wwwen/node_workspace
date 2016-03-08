@@ -10,18 +10,19 @@ module.exports=function(app){
     //页面路由
 //index
     app.get("/",Index.index);
-    app.get("/admin",Movie.list);
+    app.get("/admin",Movie.listadmin);
 //movie
     //detail
     app.get("/movie/:id",Movie.detail);
     //update
-    app.get('/admin/update/:id',Movie.update);
+    //app.get('/admin/update/:id',Movie.update);
+    app.get('/admin/update',Movie.update);
     //new
     app.post('/admin/movie/new',Movie.new);
     //admin add
     app.get("/admin/movie",Movie.add);
     //list
-    app.get("/admin/list",Movie.list);
+    app.get("/admin/movie/list",Movie.list);
     //delete
     app.delete("/admin/list",Movie.delete);
     //upload
@@ -31,7 +32,7 @@ module.exports=function(app){
     //user sign up
     app.post("/user/signup",User.signup);
     //user list
-    app.get("/user/list",User.list);
+    app.get("/admin/user/list",User.list);
 
     app.post("/user/find",User.find);
 
@@ -44,9 +45,9 @@ module.exports=function(app){
 //catetory
     app.get("/admin/catetory/new",Catetory.new);
     app.get('/admin/catetory/update/:id',Catetory.update);
-    app.get("/admin/catetory/:id",Catetory.detail);
+    //app.get("/admin/catetory/:id",Catetory.detail);
     app.post("/admin/catetory",Catetory.save);
-    app.get("/admin/catetorylist",Catetory.list);
+    app.get("/admin/catetory/list",Catetory.list);
     app.delete("/admin/catetory/list",Catetory.delete);
 
 

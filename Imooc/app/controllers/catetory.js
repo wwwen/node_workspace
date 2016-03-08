@@ -16,20 +16,13 @@ exports.detail=function(req,res){
             console.log(err);
         }
         var user=req.session.user;
-        /*Comment
-            .find({movie:id})
-            .populate("from","name")
-            .populate("reply.from reply.to","name")
-            .exec(function(err,comments){
-                console.log(comments);*/
-                res.render("catetory_admin",
+                res.render("template_admin/category/category",
                     {
                         title:"详情页",
                         catetory:catetory
                         //user:user,
                         //comments:comments
                     });
-          /*  })*/
     })
 
 }
@@ -39,7 +32,7 @@ exports.update=function(req,res){
     if(req.params.id){
         var id=new mongoose.Schema.ObjectId(req.params.id).path;
         Catetory.findById(id,function(err,catetory){
-            res.render('catetory_admin',{
+            res.render('template_admin/category/category',{
                 title:'后台更新页',
                 catetory:catetory
             });
@@ -50,7 +43,7 @@ exports.update=function(req,res){
 
 //admin new
 exports.new=function(req,res){
-    res.render("catetory_admin",
+    res.render("template_admin/category/category",
         {
             title:"添加页",
             catetory:{
@@ -75,7 +68,7 @@ exports.save=function(req,res){
                 if(err){
                     console.log(err);
                 }
-                res.redirect("/admin/catetorylist");
+                res.redirect("/admin/category/list");
                 // res.redirect("/movie/detail")
             })
         })
@@ -88,7 +81,7 @@ exports.save=function(req,res){
             if(err){
                 console.log(err);
             }
-            res.redirect('/admin/catetorylist');
+            res.redirect('/admin/category/list');
             //res.redirect('/movie/1');
         })
     }
@@ -102,7 +95,7 @@ exports.list=function(req,res){
             if(err){
                 console.log(err)
             }
-            res.render("catetorylist",
+            res.render("template_admin/category/category",
                 {
                     title:"列表页",
                     catetories:catetories

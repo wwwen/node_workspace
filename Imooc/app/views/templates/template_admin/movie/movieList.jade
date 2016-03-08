@@ -1,0 +1,161 @@
+//
+   Created by www on 2016/3/8.
+extends ./layout
+block content
+    #movie.tab-pane.active(role='tabpanel')
+                           .check-div.form-inline
+                               //button.btn.btn-yellow.btn-xs(data-toggle='modal', data-target='#addSource') 添加资源
+                               .col-xs-3
+                                   a.btn.btn-yellow.btn-xs(href="/admin/movie") 添加资源
+                               .col-xs-4
+                                   input.form-control.input-sm(type='text', placeholder='输入文字搜索')
+                                   button.btn.btn-white.btn-xs 查 询
+                           .data-div
+                                table.table.table-hover.table-bordered
+                                    thead
+                                        tr.active
+                                               th 编号
+                                               th 名称
+                                               th 导演
+                                               th 国家
+                                               th 上映时间
+                                               th 操作
+                                    tbody
+                                           -var i=0
+                                           each item in movies
+                                               - i=i+1
+                                               tr(class="item-id-#{item._id}")
+                                                   td #{i}
+                                                   td #{item.title}
+                                                   td #{item.doctor}
+                                                   td #{item.country}
+                                                   td #{item.year}
+                                                   //td #{moment(item.meta.creat).format("MM/DD/YYYY")}
+                                                   td: a.btn.btn-primary.btn-xs(data-id="#{item._id}" href="/admin/update?type=1&id=#{item._id}") 查看
+                                                       a.btn.btn-success.btn-xs(data-id="#{item._id}" href="/admin/update?type=1&id=#{item._id}") 修改
+                                                       button.btn.btn-danger.del.btn-xs(data-id="#{item._id}") 删除
+
+
+                           // 页码块
+                           footer.footer
+                               ul.pagination
+                                   li
+                                       select
+                                           option 1
+                                           option 2
+                                           option 3
+                                           option 4
+                                           option 5
+                                           option 6
+                                           option 7
+                                           option 8
+                                           option 9
+                                           option 10
+                                       | 									页
+                                   li.gray
+                                       | 共20页
+                                   li
+                                       i.glyphicon.glyphicon-menu-left
+                                   li
+                                       i.glyphicon.glyphicon-menu-right
+                           // 弹出窗口 添加资源
+                           #addSource.modal.fade(role='dialog', aria-labelledby='gridSystemModalLabel')
+                               .modal-dialog(role='document')
+                                   .modal-content
+                                       .modal-header
+                                           button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                               span(aria-hidden='true') ×
+                                           h4#gridSystemModalLabel.modal-title 添加电影资源
+                                       .modal-body
+                                           .container-fluid
+                                               form.form-horizontal
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sName') 名称：
+                                                       .col-xs-8
+                                                           input#sName.form-control.input-sm.duiqi(type='email', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sLink') 链接：
+                                                       .col-xs-8
+                                                           input#sLink.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sOrd') 排序：
+                                                       .col-xs-8
+                                                           input#sOrd.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sKnot') 父节点：
+                                                       .col-xs-8
+                                                           input#sKnot.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='exampleInput1') 资源类型：
+                                                       .col-xs-8
+                                                           label.control-label(for='anniu')
+                                                               input#anniu(type='radio', name='leixing')
+                                                               | 菜单
+                                                           label.control-label(for='meun')
+                                                               input#meun(type='radio', name='leixing')
+                                                               |  按钮
+                                       .modal-footer
+                                           button.btn.btn-xs.btn-xs.btn-white(type='button', data-dismiss='modal') 取 消
+                                           button.btn.btn-xs.btn-xs.btn-green(type='button') 保 存
+                                   // /.modal-content
+                               // /.modal-dialog
+                           // /.modal
+                           // 修改资源弹出窗口
+                           #changeSource.modal.fade(role='dialog', aria-labelledby='gridSystemModalLabel')
+                               .modal-dialog(role='document')
+                                   .modal-content
+                                       .modal-header
+                                           button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                               span(aria-hidden='true') ×
+                                           h4#gridSystemModalLabel.modal-title 修改资源
+                                       .modal-body
+                                           .container-fluid
+                                               form.form-horizontal
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sName') 名称：
+                                                       .col-xs-8
+                                                           input#sName.form-control.input-sm.duiqi(type='email', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sLink') 链接：
+                                                       .col-xs-8
+                                                           input#sLink.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sOrd') 排序：
+                                                       .col-xs-8
+                                                           input#sOrd.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sKnot') 父节点：
+                                                       .col-xs-8
+                                                           input#sKnot.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='exampleInput1') 资源类型：
+                                                       .col-xs-8
+                                                           label.control-label(for='anniu')
+                                                               input#anniu(type='radio', name='leixing')
+                                                               | 菜单
+                                                           label.control-label(for='meun')
+                                                               input#meun(type='radio', name='leixing')
+                                                               |  按钮
+                                       .modal-footer
+                                           button.btn.btn-xs.btn-white(type='button', data-dismiss='modal') 取 消
+                                           button.btn.btn-xs.btn-green(type='button') 保 存
+                                   // /.modal-content
+                               // /.modal-dialog
+                           // /.modal
+                           // 弹出删除资源警告窗口
+                           #deleteSource.modal.fade(role='dialog', aria-labelledby='gridSystemModalLabel')
+                               .modal-dialog(role='document')
+                                   .modal-content
+                                       .modal-header
+                                           button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                               span(aria-hidden='true') ×
+                                           h4#gridSystemModalLabel.modal-title 提示
+                                       .modal-body
+                                           .container-fluid
+                                               | 确定要删除该资源？删除后不可恢复！
+                                       .modal-footer
+                                           button.btn.btn-xs.btn-white(type='button', data-dismiss='modal') 取 消
+                                           button.btn.btn-xs.btn-danger(type='button') 保 存
+                                   // /.modal-content
+                               // /.modal-dialog
+                           // /.modal

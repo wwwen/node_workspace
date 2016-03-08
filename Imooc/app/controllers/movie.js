@@ -34,15 +34,25 @@ exports.detail=function(req,res){
 
 //admin update
 exports.update=function(req,res){
-    if(req.params.id){
-        var id=new mongoose.Schema.ObjectId(req.params.id).path;
+    if(req.query.id){
+        var id=new mongoose.Schema.ObjectId(req.query.id).path;
         Movie.findById(id,function(err,movie){
             Catetory.fetch(function(err,catetories){
-                res.render('admin',{
-                    title:'后台更新页',
-                    movie:movie,
-                    catetories:catetories
-                });
+                if(req.query.type && req.query.type==1){
+                    res.render('template_admin/movie/movieForm',{
+                        title:'后台更新页',
+                        movie:movie,
+                        catetories:catetories
+                    });
+                }
+                else{
+                    res.render('template_admin/admin',{
+                        title:'后台更新页',
+                        movie:movie,
+                        catetories:catetories
+                    });
+                }
+
             })
         })
     }
@@ -64,8 +74,8 @@ exports.new=function(req,res){
                 if(err){
                     console.log(err);
                 }
-                res.redirect("/movie/"+movie._id);
-                // res.redirect("/movie/detail")
+                //res.redirect("/movie/"+movie._id);
+                res.redirect("/admin");
             })
         })
     }else{
@@ -90,7 +100,8 @@ exports.new=function(req,res){
             Catetory.findById(catetoryId,function(err,catetory){
                 catetory.movies.push(movie._id)
                 catetory.save(function(err,catetory){
-                    res.redirect('/movie/'+movie._id);
+                   // res.redirect('/movie/'+movie._id);
+                    res.redirect("/admin");
                 })
             })
 
@@ -103,7 +114,7 @@ exports.new=function(req,res){
 //add
 exports.add=function(req,res){
     Catetory.fetch(function(err,catetories){
-        res.render("admin",
+        res.render("template_admin/movie/movieForm",
             {
                 title:"后台页面",
                 movie:{
@@ -130,6 +141,20 @@ exports.list=function(req,res){
                 console.log(err)
             }
             res.render("index",
+                {
+                    title:"列表页",
+                    movies:movies
+                })
+        }
+    )
+}
+
+exports.listadmin=function(req,res){
+    Movie.fetch(function(err,movies){
+            if(err){
+                console.log(err)
+            }
+            res.render("template_admin/movie/movieList",
                 {
                     title:"列表页",
                     movies:movies

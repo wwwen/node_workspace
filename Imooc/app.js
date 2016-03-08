@@ -28,11 +28,11 @@ app.use(session({
 })
 );
 //app.set("views","./app/views/pages");
-//app.use(express.static("public"));
-//app.set("views","./app/views/template/templates");
-//app.use(express.static("./app/views/template/templates"));
-app.set("views","./app/views/template/template_admin");
-app.use(express.static("./app/views/template/template_admin"));
+app.use(express.static("public"));
+app.set("views","./app/views/templates");
+//app.use(express.static("./app/views/templates"));
+//app.set("views","./app/views/template/template_admin");
+//app.use(express.static("./app/views/template/template_admin"));
 
 app.set("view engine","jade");
 app.set("port",3000);

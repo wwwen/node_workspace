@@ -18,7 +18,7 @@ $(function(){
             success : function () {
             }
         }).done(function(results){
-            if(results.message==1){
+            if(results.message){
                 console.log("用户名存在，校验不通过");
                 //return true;//用户名存在
                 $("#message").html("<font color='red'>red the name has allready existed!!</font>");

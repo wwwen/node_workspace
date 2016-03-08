@@ -15,7 +15,7 @@ exports.index=function(req,res){
             if(err){
                 console.log(err)
             }
-            res.render("../template/index",
+            res.render("index",
                 {
                     title:"imooc首页",
                     catetories:catetories,

@@ -1,0 +1,29 @@
+//
+   Created by www on 2016/3/8.
+extends ./layout
+block content
+    .check-div.form-inline
+        .col-xs-3
+            button.btn.btn-yellow.btn-xs(data-toggle='modal', data-target='#addUser') 添加分类
+        .col-xs-4
+            input.form-control.input-sm(type='text', placeholder='输入文字搜索')
+            button.btn.btn-white.btn-xs 查 询
+    table.table.table-hover.table-bordered
+        thead
+            tr
+                th name
+                //th password
+                //th
+                th
+                th
+                th
+        tboady
+            each item in catetories
+                tr(class="item-id-#{item._id}")
+                    td #{item.name}
+                    //td #{item.password}
+                    //td #{moment(item.meta.creationData).format("MM/DD/YYYY")}
+                    td: a.btn.btn-primary.btn-xs(data-id="#{item._id}" href="/admin/catetory/#{item._id}") 查看
+                    td: a.btn.btn-success.btn-xs(data-id="#{item._id}" href="/admin/catetory/update/#{item._id}") 修改
+                    td: button.btn.btn-danger.del.btn-xs(data-id="#{item._id}") 删除
+

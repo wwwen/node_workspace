@@ -1,0 +1,184 @@
+//
+   Created by www on 2016/3/8.
+extends ./layout
+block content
+
+                        // 用户管理模块
+
+                        .check-div.form-inline
+                               //.col-xs-3
+                                   button.btn.btn-yellow.btn-xs(data-toggle='modal', data-target='#addUser') 添加用户
+                               .col-xs-4
+                                   input.form-control.input-sm(type='text', placeholder='输入文字搜索')
+                                   button.btn.btn-white.btn-xs 查 询
+                               //.col-lg-3.col-lg-offset-2.col-xs-4(style=' padding-right: 40px;text-align: right;')
+                                   label 排序: 
+                                   select.form-control
+                                       option 地区
+                                       option 地区
+                                       option 班期
+                                       option 性别
+                                       option 年龄
+                                       option 份数
+                        .data-div
+                               table.table.table-hover.table-bordered
+                                   thead
+                                       tr.active
+                                           th 用户名
+                                           th 密码
+                                           //th 创建时间
+                                           //th
+
+                                   tboady
+                                       each item in users
+                                           tr(class="item-id-#{item._id}")
+                                               td #{item.name}
+                                               td #{item.password}
+                                               //td #{item._meta.createAt}
+                                               //td:button.btn.btn-danger.del.btn-xs(data-id="#{item.name}") 删除
+
+                           // 页码块
+                           footer.footer
+                               ul.pagination
+                                   li
+                                       select
+                                           option 1
+                                           option 2
+                                           option 3
+                                           option 4
+                                           option 5
+                                           option 6
+                                           option 7
+                                           option 8
+                                           option 9
+                                           option 10
+                                       | 									页
+                                   li.gray
+                                       | 共20页
+                                   li
+                                       i.glyphicon.glyphicon-menu-left
+                                   li
+                                       i.glyphicon.glyphicon-menu-right
+                           // 弹出添加用户窗口
+                           //#addUser.modal.fade(role='dialog', aria-labelledby='gridSystemModalLabel')
+                               .modal-dialog(role='document')
+                                   .modal-content
+                                       .modal-header
+                                           button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                               span(aria-hidden='true') ×
+                                           h4 #gridSystemModalLabel.modal-title 添加用户
+                                       .modal-body
+                                           .container-fluid
+                                               form.form-horizontal
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sName') 用户名：
+                                                       .col-xs-8
+                                                           input#sName.form-control.input-sm.duiqi(type='email', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sLink') 真实姓名：
+                                                       .col-xs-8
+                                                           input#sLink.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sOrd') 电子邮箱：
+                                                       .col-xs-8
+                                                           input #sOrd.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sKnot') 电话：
+                                                       .col-xs-8
+                                                           input#sKnot.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sKnot') 地区：
+                                                       .col-xs-8
+                                                           select.form-control.select-duiqi
+                                                               option(value='') 国际关系地区
+                                                               option(value='') 北京大学
+                                                               option(value='') 天津大学
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sKnot') 权限：
+                                                       .col-xs-8
+                                                           select.form-control.select-duiqi
+                                                               option(value='') 管理员
+                                                               option(value='') 普通用户
+                                                               option(value='') 游客
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='situation') 状态：
+                                                       .col-xs-8
+                                                           label.control-label(for='anniu')
+                                                               input#normal(type='radio', name='situation')
+                                                               | 正常
+                                                           label.control-label(for='meun')
+                                                               input#forbid(type='radio', name='situation')
+                                                               |  禁用
+                                       .modal-footer
+                                           button.btn.btn-xs.btn-white(type='button', data-dismiss='modal') 取 消
+                                           button.btn.btn-xs.btn-green(type='button') 保 存
+                                   // /.modal-content
+                               // /.modal-dialog
+                           // /.modal
+                           // 弹出修改用户窗口
+                           //#reviseUser.modal.fade(role='dialog', aria-labelledby='gridSystemModalLabel')
+                               .modal-dialog(role='document')
+                                   .modal-content
+                                       .modal-header
+                                           button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                               span(aria-hidden='true') ×
+                                           h4#gridSystemModalLabel.modal-title 修改用户
+                                       .modal-body
+                                           .container-fluid
+                                               form.form-horizontal
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sName') 用户名：
+                                                       .col-xs-8
+                                                           input #sName.form-control.input-sm.duiqi(type='email', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sLink') 真实姓名：
+                                                       .col-xs-8
+                                                           input#sLink.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sOrd') 电子邮箱：
+                                                       .col-xs-8
+                                                           input#sOrd.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sKnot') 电话：
+                                                       .col-xs-8
+                                                           input#sKnot.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sKnot') 地区：
+                                                       .col-xs-8
+                                                           input#sKnot.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='sKnot') 权限：
+                                                       .col-xs-8
+                                                           input#sKnot.form-control.input-sm.duiqi(type='', placeholder='')
+                                                   .form-group
+                                                       label.col-xs-3.control-label(for='situation') 状态：
+                                                       .col-xs-8
+                                                           label.control-label(for='anniu')
+                                                               input#normal(type='radio', name='situation')
+                                                               | 正常
+                                                           label.control-label(for='meun')
+                                                               input#forbid(type='radio', name='situation')
+                                                               |  禁用
+                                       .modal-footer
+                                           button.btn.btn-xs.btn-white(type='button', data-dismiss='modal') 取 消
+                                           button.btn.btn-xs.btn-green(type='button') 保 存
+                                   // /.modal-content
+                               // /.modal-dialog
+                           // /.modal
+                           // 弹出删除用户警告窗口
+                           //#deleteUser.modal.fade(role='dialog', aria-labelledby='gridSystemModalLabel')
+                               .modal-dialog(role='document')
+                                   .modal-content
+                                       .modal-header
+                                           button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                               span(aria-hidden='true') ×
+                                           h4#gridSystemModalLabel.modal-title 提示
+                                       .modal-body
+                                           .container-fluid
+                                               | 确定要删除该用户？删除后不可恢复！
+                                       .modal-footer
+                                           button.btn.btn-xs.btn-white(type='button', data-dismiss='modal') 取 消
+                                           button.btn.btn-xs.btn-danger(type='button') 保 存
+                                   // /.modal-content
+                               // /.modal-dialog
+                           // /.modal

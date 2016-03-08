@@ -54,7 +54,7 @@ exports.list=function(req,res){
             if(err){
                 console.log(err)
             }
-            res.render("userlist",
+            res.render("template_admin/user/user",
                 {
                     title:"列表页",
                     users:users
@@ -71,7 +71,7 @@ exports.find=function(req,res){
             }
             if(user){
                 //console.log(user.name);
-                res.json({message:1});
+                res.json({message:user});
                 // res.setAttribute("message",1);
 
             }else{
