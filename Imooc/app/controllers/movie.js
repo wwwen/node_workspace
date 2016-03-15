@@ -98,7 +98,7 @@ exports.new=function(req,res){
 
             var catetoryId=_movie.catetory;
             Catetory.findById(catetoryId,function(err,catetory){
-                catetory.movies.push(movie._id)
+                catetory.movies.push(movie._id);
                 catetory.save(function(err,catetory){
                    // res.redirect('/movie/'+movie._id);
                     res.redirect("/admin");

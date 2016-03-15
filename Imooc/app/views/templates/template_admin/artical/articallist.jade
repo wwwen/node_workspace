@@ -1,0 +1,37 @@
+//
+   Created by www on 2016/3/13.
+
+extends ./layout
+block content
+    .check-div.form-inline
+        .col-xs-3
+            button.btn.btn-yellow.btn-xs(data-toggle='modal', data-target='#addUser') 写文章
+        .col-xs-4
+            input.form-control.input-sm(type='text', placeholder='输入文字搜索')
+            button.btn.btn-white.btn-xs 查 询
+    table.table.table-hover.table-bordered
+        thead
+            tr
+                th 标题
+                //th password
+                //th
+                th 时间
+                th 是否已发表
+                th 操作
+        tboady
+            each item in articals
+                tr(class="item-id-#{item._id}")
+                    td #{item.title}
+                    td #{item.meta.createAt}
+                    if item.status=="1"
+                        td 已发表
+                        td
+                            a.btn.btn-primary.btn-xs(data-id="#{item._id}" href="/artical/detail?id=#{item._id}&type=1") 查看
+                            button.btn.btn-danger.del.btn-xs(data-id="#{item._id}") 删除
+                    else
+                        td 草稿
+                        td
+                            a.btn.btn-primary.btn-xs(data-id="#{item._id}" href="/admin/artical/#{item._id}") 继续编辑
+                            button.btn.btn-danger.del.btn-xs(data-id="#{item._id}") 删除
+
+

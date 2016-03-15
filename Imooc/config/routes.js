@@ -3,6 +3,7 @@
  */
 var Movie=require('../app/controllers/movie');
 var User=require('../app/controllers/user');
+var Artical=require('../app/controllers/artical');
 var Comment=require('../app/controllers/comment');
 var Index=require('../app/controllers/index');
 var Catetory=require('../app/controllers/catetory');
@@ -11,6 +12,7 @@ module.exports=function(app){
 //index
     app.get("/",Index.index);
     app.get("/admin",Movie.listadmin);
+
 //movie
     //detail
     app.get("/movie/:id",Movie.detail);
@@ -50,6 +52,10 @@ module.exports=function(app){
     app.get("/admin/catetory/list",Catetory.list);
     app.delete("/admin/catetory/list",Catetory.delete);
 
+//artical
+    app.get("/admin/artical",Artical.add);
+    app.post("/admin/artical/new",Artical.new);
+    app.get("/admin/artical/list",Artical.list);
 
 }
 

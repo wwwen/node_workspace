@@ -8,12 +8,8 @@ var cookieParser=require("cookie-parser");
 app.use(cookieParser());
 var session=require("express-session");
 var mongoStore=require("connect-mongostore")(session);
-// create application/json parser
-//var jsonParser = bodyParser.json();
-
-// create application/x-www-form-urlencoded parser
-//var urlencodedParser = bodyParser.urlencoded({ extended: true });
 //app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser());
 app.use(session({
     resave:false,//添加这行
@@ -27,6 +23,13 @@ app.use(session({
     })*/
 })
 );
+var engines=require("consolidate");
+app.engine("jade",engines.jade);
+app.engine("html",engines.ejs);
+app.set("view engine","jade");
+//app.set("view engine","html");
+
+
 //app.set("views","./app/views/pages");
 app.use(express.static("public"));
 app.set("views","./app/views/templates");
@@ -34,7 +37,6 @@ app.set("views","./app/views/templates");
 //app.set("views","./app/views/template/template_admin");
 //app.use(express.static("./app/views/template/template_admin"));
 
-app.set("view engine","jade");
 app.set("port",3000);
 app.listen(3000);
 require('./config/routes')(app);

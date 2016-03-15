@@ -23,6 +23,7 @@ html
         script(src='template/js/wow.min.js')
         script(src='template/js/custom.js')
         script(src='template/js/isotope.pkgd.min.js')
+        script(src='/js/index.js')
     body(data-spy='scroll', data-target='.navbar-collapse', data-offset='50')
         // preloader section
         .preloader
@@ -97,37 +98,37 @@ html
         #work.works
              .wrapper
                     .container
-                        h2.section-title.wow.bounceInRight.animated.custom-white 我的电影
+                        h3.section-title.wow.bounceInRight.animated.custom-white 我的电影
                         #filters.button-group
                             button.filters-button.wow.bounceInLeft.animated._active(data-wow-delay='0.0s', data-filter='*') 最新
                             button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.1s', data-filter='.分类1') 分类1
                             button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.2s', data-filter='.分类2') 分类2
-                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.3s', data-filter='.logo') 分类3
-                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.4s', data-filter='.music') 分类4
-                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.5s', data-filter='.print') 分类5
-                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.6s', data-filter='.web') 分类6
+                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.3s', data-filter='.分类3') 分类3
+                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.4s', data-filter='.分类4') 分类4
+                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.5s', data-filter='.分类5') 分类5
+                            button.filters-button.wow.bounceInLeft.animated(data-wow-delay='0.6s', data-filter='.分类6') 分类6
                     // /.container
                     .copyrights
                         | Collect from
                     #works_container
                         each cat in catetories
                             if cat.movies && cat.movies.length > 0
-                            each item in cat.movies
-                                .works-single-item(class="#{cat.name}")
-                                    img.works-item(src='images/1.jpg')
-                                    .a(href="/movie/#{item._id}") #{item.title}
-                                    .works-single-item-hover.text-center
-                                        .works-icons
-                                            a(href='/movie/#{item._id}')
-                                                i.custom-icon.fa.fa-link
-                                            a.portfolio-item(data-lightbox-gallery='our-works-item-view', href='images/1.jpg')
-                                                i.custom-icon.fa.fa-search
-                                        .works-icons-content
-                                            a(href="/movie/#{item._id}")
-                                                p|电影名称 #{item.title}
-                                                p|上映时间
-                                                p|导演名称
-                                                p|分类
+                                each item in cat.movies
+                                    .works-single-item(class="#{cat.name}")
+                                        img.works-item(src='#{item.poster}')
+                                        a(href="/movie/#{item._id}") #{item.title}
+                                        .works-single-item-hover.text-center
+                                            .works-icons
+                                                a(href='/movie/#{item._id}')
+                                                    i.custom-icon.fa.fa-link
+                                                a.portfolio-item(data-lightbox-gallery='our-works-item-view', href='images/1.jpg')
+                                                    i.custom-icon.fa.fa-search
+                                            .works-icons-content
+                                                a(href="/movie/#{item._id}")
+                                                    p|电影名称 #{item.title}
+                                                    p|上映时间
+                                                    p|导演名称
+                                                    p|分类
 
                             // /.works-single-item-hover
                         // /.works-single-item
@@ -139,59 +140,61 @@ html
         #team
             .container
                 .row
-                    h2.section-title.wow.bounceInRight.animated.custom-white 我的阅读
+                    .title
+                        h3 我的阅读
+                        hr
                     ul.list3
-                        li.col-lg-6.col-md-6.col-sm-6
-                            .box4
-                                figure
-                                    img(src='template/images/page1_img4.jpg', alt='')
-                                .info1.maxheight
-                                    p.list3title1 Nature
-                                    p.list3title2 Migytafsas deuauyt asares
-                                    p.list3title3 Kictaesaert asetyertya aset aplicibrdedas.
-                                    a.btn-link.btn-link1(href='#')
-                                        | learn more
-                                        span
-                        li.col-lg-6.col-md-6.col-sm-6
-                            .box4
-                                figure
-                                    img(src='template/images/page1_img5.jpg', alt='')
-                                .info1.maxheight
-                                    p.list3title1 Cities
-                                    p.list3title2 Btreasas lisemeyta siqades
-                                    p.list3title3 Kictaesaert asetyertya aset aplicibrdedas.
-                                    a.btn-link.btn-link1(href='#')
-                                        | learn more
-                                        span
-                        li.col-lg-6.col-md-6.col-sm-6
-                            .box4
-                                figure
-                                    img(src='template/images/page1_img6.jpg', alt='')
-                                .info1.maxheight
-                                    p.list3title1 Portraits
-                                    p.list3title2 Dolore nuyfasa kerytertas
-                                    p.list3title3 Kictaesaert asetyertya aset aplicibrdedas.
-                                    a.btn-link.btn-link1(href='#')
-                                        | learn more
-                                        span
-                        li.col-lg-6.col-md-6.col-sm-6
-                            .box4
-                                figure
-                                    img(src='template/images/page1_img7.jpg', alt='')
-                                .info1.maxheight
-                                    p.list3title1 Fashion
-                                    p.list3title2 Fertyuasa mietyas lteasas
-                                    p.list3title3 Kictaesaert asetyertya aset aplicibrdedas.
-                                    a.btn-link.btn-link1(href='#')
-                                        | learn more
-                                        span
+                            li.col-lg-6.col-md-6.col-sm-6
+                                .box4
+                                    figure
+                                        img(src='template/images/page1_img4.jpg', alt='')
+                                    .info1.maxheight
+                                        p.list3title1 Nature
+                                        p.list3title2 Migytafsas deuauyt asares
+                                        p.list3title3 Kictaesaert asetyertya aset aplicibrdedas.
+                                        a.btn-link.btn-link1(href='#')
+                                            | learn more
+                                            span
+                            li.col-lg-6.col-md-6.col-sm-6
+                                .box4
+                                    figure
+                                        img(src='template/images/page1_img5.jpg', alt='')
+                                    .info1.maxheight
+                                        p.list3title1 Cities
+                                        p.list3title2 Btreasas lisemeyta siqades
+                                        p.list3title3 Kictaesaert asetyertya aset aplicibrdedas.
+                                        a.btn-link.btn-link1(href='#')
+                                            | learn more
+                                            span
+                            li.col-lg-6.col-md-6.col-sm-6
+                                .box4
+                                    figure
+                                        img(src='template/images/page1_img6.jpg', alt='')
+                                    .info1.maxheight
+                                        p.list3title1 Portraits
+                                        p.list3title2 Dolore nuyfasa kerytertas
+                                        p.list3title3 Kictaesaert asetyertya aset aplicibrdedas.
+                                        a.btn-link.btn-link1(href='#')
+                                            | learn more
+                                            span
+                            li.col-lg-6.col-md-6.col-sm-6
+                                .box4
+                                    figure
+                                        img(src='template/images/page1_img7.jpg', alt='')
+                                    .info1.maxheight
+                                        p.list3title1 Fashion
+                                        p.list3title2 Fertyuasa mietyas lteasas
+                                        p.list3title3 Kictaesaert asetyertya aset aplicibrdedas.
+                                        a.btn-link.btn-link1(href='#')
+                                            | learn more
+                                            span
 
         // portfolio section
         #portfolio
             .container
                 .row
                     .col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.title
-                        h2 我的音乐歌单
+                        h3 我的音乐歌单
                         hr
                         p
                             | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.
@@ -224,51 +227,28 @@ html
         #price
             .container
                 .col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.title
-                    h2 我的日记
+                    h3 我的日记
                     hr
                     p
                         | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.
-                .col-md-4.col-sm-6
-                    .plan.wow.bounceIn(data-wow-delay='0.3s')
-                        .plan_title
-                            h3 标题
-                        .plan_sub_title
-                            h2 主题
-                            small 时间
-                        ul
-                            li 分享链接
-                            li 收获感想。。更多
-                        button.btn.btn-warning Get started
-                .col-md-4.col-sm-6
-                    .plan.wow.bounceIn(data-wow-delay='0.6s')
-                        .plan_title
-                            h3 Business
-                        .plan_sub_title
-                            h2 $ 50
-                            small per month
-                        ul
-                            li 10 ACCOUNTS
-                            li 50 GB SPACE
-                            li 30 PRO THEMES
-                        button.btn.btn-warning Get started
-                .col-md-4.col-sm-6
-                    .plan.wow.bounceIn(data-wow-delay='0.9s')
-                        .plan_title
-                            h3 Professional
-                        .plan_sub_title
-                            h2 $ 75
-                            small per month
-                        ul
-                            li 20 ACCOUNTS
-                            li 100 GB SPACE
-                            li 60 PRO THEMES
-                        button.btn.btn-warning Get started
+                each item in articals
+                    .col-md-4.col-sm-6
+                        .plan.wow.bounceIn(data-wow-delay='0.3s')
+                            .plan_title
+                                h3 #{item.title}
+                            input#content(type="hidden",value="#{item.content}")
+                            .plan_sub_title
+                                h4 主题
+                                small #{item.meta.createAt}
+                            .row.content(content="#{item.content}")
+                            button.btn.btn-warning read
+
         // contact section
         #contact
             .container
                 .row
                     .col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.title
-                        h2 Contact Us
+                        h3 Contact Us
                         hr
                         p
                             | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.
@@ -302,8 +282,8 @@ html
                     .col-md-12.col-sm-12.copyright
                         p
                             | Copyright © 2084 Company Name | More Templates
-                            a(href='http://www.cssmoban.com/', target='_blank', title='模板之家') 模板之家
+                            a(href='http://www.cssmoban.com/', target='_blank', title='') 模板之家
                             |  - Collect from
-                            a(href='http://www.cssmoban.com/', title='网页模板', target='_blank') 网页模板
+                            a(href='http://www.cssmoban.com/', title='', target='_blank') 网页模板
 
 

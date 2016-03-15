@@ -3,24 +3,29 @@
  */
 var Movie=require('../models/movie');
 var Catetory=require('../models/catetory');
+var Artical=require("../models/artical")
 exports.index=function(req,res){
     //console.log("--------当前session用户-----------");
     //console.log(req.session.user);
 
     Catetory
         .find({})
-        .populate({path:"movies",option:{limit:5}})
+        .populate({path:"movies",option:{limit:10}})
         .exec(function(err,catetories){
             var user=req.session.user;
             if(err){
                 console.log(err)
             }
-            res.render("index",
-                {
-                    title:"imooc首页",
-                    catetories:catetories,
-                    user:user
-                })
+            Artical.fetch(function(err,articals){
+                res.render("index",
+                    {
+                        title:"imooc首页",
+                        catetories:catetories,
+                        user:user,
+                        articals:articals
+                    })
+            })
+
 
         })
 

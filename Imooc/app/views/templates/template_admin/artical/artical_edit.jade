@@ -1,0 +1,36 @@
+extends ./layout
+block content
+                    // 编辑文章
+                    script(type='text/javascript', charset='utf-8', src='/ueditor/ueditor.config.js')
+                    script(type='text/javascript', charset='utf-8', src='/ueditor/ueditor.all.min.js')
+                    script(type='text/javascript', charset='utf-8', src='/ueditor/lang/zh-cn/zh-cn.js')
+                    script(type='text/javascript', charset='utf-8', src='/js/artical.js')
+                    h5 编辑文章
+                    form.form-horizontal(method="post",action="")
+                        input(type="hidden",name="artical[_id]",value="#{artical._id}")
+                        input#content(type="hidden",name="artical[content]")
+                        input#status(type="hidden",name="artical[status]")
+                        .form-group
+                            label.col-sm-2.control-label(for="inputTitle") 标题
+                            .col-sm-5
+                                input#inputTitle.form-control(type="text",name="artical[title]",value="#{artical.title}")
+                        .form-group
+                            .col-sm-10
+                                script#editor(type='text/plain', style='width:900px;height:500px;').
+                        .form-group
+                            label.radio
+                                input#optionsRadios1(type='radio', name='artical[status]', value='0')
+                                | 存为草稿
+                            label.radio
+                                input#optionsRadios2(type='radio', name='artical[status]', value='1')
+                                | 马上发表
+                        .container.show
+                            | 123
+                        input#show(type="button",value="预览")
+                        input#save(type="button" ,value="提交")
+
+
+
+
+
+
