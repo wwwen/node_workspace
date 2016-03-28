@@ -1,0 +1,98 @@
+<!--Created by www on 2016/1/12.block content
+--><!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>admin</title>
+    <script src="/template_admin/js/jquery.min.js"></script>
+    <script src="/template_admin/js/bootstrap.min.js"></script>
+    <script src="/js/admin.js"></script>
+    <script>
+        $(function() {
+            $(".meun-item").click(function() {
+                $(".meun-item").removeClass("meun-item-active");
+                $(this).addClass("meun-item-active");
+                var itmeObj = $(".meun-item").find("img");
+                itmeObj.each(function() {
+                    var items = $(this).attr("src");
+                    items = items.replace("_grey.png", ".png");
+                    items = items.replace(".png", "_grey.png")
+                    $(this).attr("src", items);
+                });
+                var attrObj = $(this).find("img").attr("src");;
+                attrObj = attrObj.replace("_grey.png", ".png");
+                $(this).find("img").attr("src", attrObj);
+            });
+            $("#topAD").click(function() {
+                $("#topA").toggleClass(" glyphicon-triangle-right");
+                $("#topA").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $("#topBD").click(function() {
+                $("#topB").toggleClass(" glyphicon-triangle-right");
+                $("#topB").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $("#topCD").click(function() {
+                $("#topC").toggleClass(" glyphicon-triangle-right");
+                $("#topC").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $(".toggle-btn").click(function() {
+                $("#leftMeun").toggleClass("show");
+                $("#rightContent").toggleClass("pd0px");
+            })
+        })
+    </script>
+    <!--if lt IE 9
+    script(src='js/html5shiv.min.js')
+    script(src='js/respond.min.js')
+    -->
+    <link href="/template_admin/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/template_admin/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/template_admin/css/slide.css">
+    <link rel="stylesheet" type="text/css" href="/template_admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/template_admin/css/flat-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/template_admin/css/jquery.nouislider.css">
+</head>
+<body>
+<div id="wrap">
+    <!-- 左侧菜单栏目块-->
+    <div id="leftMeun" class="leftMeun">
+        <div id="logoDiv">
+            <p id="logoP"><img id="logo" alt="www项目" src="/template_admin/images/logo.png"><span>www后台管理</span></p>
+        </div>
+        <div id="personInfor">
+            <p id="userName">www</p>
+            <p><span>1070374990@qq.com</span></p>
+            <p><a>退出登录</a></p>
+        </div>
+        <div class="meun-title">账号管理</div>
+        <div class="meun-item meun-item-active"><a href="/admin"><img src="/template_admin/images/icon_source.png">电影管理</a></div>
+        <div class="meun-item"><a href="/admin/catetory/list"><img src="/template_admin/images/icon_source.png">分类管理</a></div>
+        <div href="#sour" aria-controls="sour" role="tab" data-toggle="tab" class="meun-item"><img src="/template_admin/images/icon_source.png">图书管理</div>
+        <div href="#sour" aria-controls="sour" role="tab" data-toggle="tab" class="meun-item"><img src="/template_admin/images/icon_source.png">音乐管理</div>
+        <div href="#char" aria-controls="char" role="tab" data-toggle="tab" class="meun-item"><img src="/template_admin/images/icon_chara_grey.png">权限管理</div>
+        <div class="meun-item"><a href=""><img src="/template_admin/images/icon_user_grey.png">用户管理</a></div>
+        <div href="#chan" aria-controls="chan" role="tab" data-toggle="tab" class="meun-item"><img src="/template_admin/images/icon_change_grey.png">修改密码</div>
+    </div>
+    <!-- 右侧具体内容栏目-->
+    <div id="rightContent"><a id="nimei" class="toggle-btn"><i class="glyphicon glyphicon-align-justify"></i></a>
+        <!-- Tab panes-->
+        <div class="tab-content">
+            <!-- 电影管理模块-->
+            <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"> </script>
+            <h1>完整demo</h1>
+            <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+        </div>
+        <script>
+            var ue = UE.getEditor('editor');
+        </script>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
